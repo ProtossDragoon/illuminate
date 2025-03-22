@@ -1,0 +1,107 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "myproject"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Janghoo Lee", email = "dlwkdgn1@naver.com"}
+]
+readme = "README.md"
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "PyYAML",
+]
+
+[project.optional-dependencies]
+dev = [
+    "flit",
+    "ruff",
+]
+
+# pyproject.toml is a new configuration file defined in PEP 518.
+# It is design to store build system requirements, but it can also store any
+# tool configuration for your Python project, possibly replacing the need for
+# setup.cfg or other tool-specific files.
+# https://github.com/carlosperate/awesome-pyproject
+
+[tool.ruff]
+src = ["myproject"]
+indent-width = 4  # 들여쓰기 너비를 4로 설정
+line-length = 110 # 라인 길이를 100으로 제한
+extend-select = [ # Google 스타일을 기반으로 하는 설정
+    "E",  # pycodestyle errors
+    "F",  # pyflakes
+    "W",  # pycodestyle warnings
+    "I",  # isort
+]
+
+[tool.ruff.lint]
+ignore = [
+    "ANN101",
+    "ANN102",
+    "ANN204", # Checks that "special" methods, like __init__, __new__, and __call__, have return type annotations.
+    "D100", # Missing module docstring
+    "D103", # Missing module docstring
+    "D105", # Missing docstring in magic method
+    "D107", # Missing __init__ docstring
+    "D403", # missing-terminal-punctuation, First line should end with a period
+    "S104"
+]
+select = [ # Google 스타일 가이드를 따르는 규칙 선택
+    "E",   # pycodestyle errors
+    "F",   # pyflakes
+    "W",   # pycodestyle warnings
+    "C90", # mccabe
+    "I",   # isort
+    "N",   # pep8-naming
+    "D",   # pydocstyle
+    "UP",  # pyupgrade
+    "YTT", # flake8-2020
+    "ANN", # flake8-annotations
+    "S",   # flake8-bandit
+    "BLE", # flake8-blind-except
+    "FBT", # flake8-boolean-trap
+    "B",   # flake8-bugbear
+    "A",   # flake8-builtins
+    "COM", # flake8-commas
+    "C4",  # flake8-comprehensions
+    "DTZ", # flake8-datetimez
+    "T10", # flake8-debugger
+    "DJ",  # flake8-django
+    "EM",  # flake8-errmsg
+    "EXE", # flake8-executable
+    "ISC", # flake8-implicit-str-concat
+    "ICN", # flake8-import-conventions
+    "G",   # flake8-logging-format
+    "PIE", # flake8-pie
+    "T20", # flake8-print
+    "PYI", # flake8-pyi
+    "PT",  # flake8-pytest-style
+    "RSE", # flake8-raise
+    "RET", # flake8-return
+    "SLF", # flake8-self
+    "SIM", # flake8-simplify
+    "TID", # flake8-tidy-imports
+    "TCH", # flake8-type-checking
+    "ARG", # flake8-unused-arguments
+    "PTH", # flake8-use-pathlib
+    "ERA", # eradicate
+    "PD",  # pandas-vet
+    "PGH", # pygrep-hooks
+    "PL",  # Pylint
+    "TRY", # tryceratops
+    "RUF", # Ruff-specific rules
+]
+
+[tool.ruff.format]
+# Ruff의 포매터 설정
+quote-style = "single"
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
