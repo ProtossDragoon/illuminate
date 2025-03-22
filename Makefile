@@ -1,4 +1,4 @@
-PROJECT = myproject
+PROJECT = illuminate
 
 all: install-dev test
 

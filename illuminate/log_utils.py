@@ -35,11 +35,11 @@ class ColoredFormatter(logging.Formatter):
         'CRITICAL': Colors.RED + Colors.BOLD,
     }
     ABSTRACTION_LEVEL_COLORS = {
-        'myproject.domain': Colors.CYAN,
-        'myproject.application': Colors.GREEN,
-        'myproject.presentation': Colors.MAGENTA,
-        'myproject.infrastructure': Colors.YELLOW,
-        'myproject': Colors.WHITE,
+        'illuminate.domain': Colors.CYAN,
+        'illuminate.application': Colors.GREEN,
+        'illuminate.presentation': Colors.MAGENTA,
+        'illuminate.infrastructure': Colors.YELLOW,
+        'illuminate': Colors.WHITE,
     }
     
     def format(self, record):

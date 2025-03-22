@@ -3,11 +3,11 @@ requires = ["flit_core >=3.2,<4"]
 build-backend = "flit_core.buildapi"
 
 [project]
-name = "myproject"
+name = "illuminate"
 version = "0.1.0"
 description = ""
 authors = [
-    {name = "Janghoo Lee", email = "dlwkdgn1@naver.com"}
+    {name = "Janghoo LEE", email = "zetteljang@gmail.com"}
 ]
 readme = "README.md"
 classifiers = [
@@ -16,6 +16,7 @@ classifiers = [
 requires-python = ">=3.10"
 dependencies = [
     "PyYAML",
+    "fastapi[all]"
 ]
 
 [project.optional-dependencies]
@@ -31,7 +32,7 @@ dev = [
 # https://github.com/carlosperate/awesome-pyproject
 
 [tool.ruff]
-src = ["myproject"]
+src = ["illuminate"]
 indent-width = 4  # 들여쓰기 너비를 4로 설정
 line-length = 110 # 라인 길이를 100으로 제한
 extend-select = [ # Google 스타일을 기반으로 하는 설정
@@ -46,6 +47,9 @@ ignore = [
     "ANN101",
     "ANN102",
     "ANN204", # Checks that "special" methods, like __init__, __new__, and __call__, have return type annotations.
+    "EM101",
+    "EM102",
+    "TRY003",
     "D100", # Missing module docstring
     "D103", # Missing module docstring
     "D105", # Missing docstring in magic method
