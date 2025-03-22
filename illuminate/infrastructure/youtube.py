@@ -75,7 +75,7 @@ def get_example_transcript() -> str:
     """
     # 현재 파일과 같은 디렉토리에 있는 example.md 파일 경로
     current_dir = Path(__file__).parent
-    example_path = current_dir / 'example.md'
+    example_path = current_dir / 'example.srt'
 
     # 파일 내용 읽기
     with open(example_path, encoding='utf-8') as f:
