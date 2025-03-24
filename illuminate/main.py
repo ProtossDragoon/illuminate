@@ -15,4 +15,7 @@ app.include_router(router)
 
 
 if __name__ == '__main__':
+    from illuminate.log_utils import setup_logging
+
+    setup_logging()
     uvicorn.run('illuminate.main:app', host='0.0.0.0', port=8000)

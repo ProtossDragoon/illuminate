@@ -2,6 +2,10 @@ import os
 import re
 from pathlib import Path
 
+import dotenv
+
+dotenv.load_dotenv()
+
 # 개발 모드 여부
 DEV_MODE = os.getenv('DEV_MODE', 'True').lower() in ('true', '1', 't')
 
@@ -35,6 +39,25 @@ def extract_video_id(url: str) -> str | None:
     return None
 
 
+def get_example_transcript() -> str:
+    """example.md 파일에서 예제 자막을 읽어옵니다.
+
+    Returns:
+        str: 예제 자막 텍스트
+
+    Raises:
+        FileNotFoundError: example.md 파일을 찾을 수 없는 경우
+
+    """
+    # 현재 파일과 같은 디렉토리에 있는 example.md 파일 경로
+    current_dir = Path(__file__).parent
+    example_path = current_dir / 'example.srt'
+
+    # 파일 내용 읽기
+    with open(example_path, encoding='utf-8') as f:
+        return f.read()
+
+
 def get_transcript(youtube_url: str) -> str:
     """YouTube URL에서 자막을 가져옵니다.
 
@@ -56,27 +79,4 @@ def get_transcript(youtube_url: str) -> str:
 
     if not video_id:
         raise ValueError('올바른 유튜브 URL이 아닙니다.')
-
-    try:
-        return get_example_transcript()
-    except Exception as e:
-        raise TranscriptNotFoundException(f'자막을 가져올 수 없습니다: {e!s}')
-
-
-def get_example_transcript() -> str:
-    """example.md 파일에서 예제 자막을 읽어옵니다.
-
-    Returns:
-        str: 예제 자막 텍스트
-
-    Raises:
-        FileNotFoundError: example.md 파일을 찾을 수 없는 경우
-
-    """
-    # 현재 파일과 같은 디렉토리에 있는 example.md 파일 경로
-    current_dir = Path(__file__).parent
-    example_path = current_dir / 'example.srt'
-
-    # 파일 내용 읽기
-    with open(example_path, encoding='utf-8') as f:
-        return f.read()
+    return get_example_transcript()
