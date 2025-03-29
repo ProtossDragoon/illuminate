@@ -20,6 +20,8 @@ dependencies = [
     "supabase",
     "langchain",
     "langchain-openai",
+    "notion-client",
+    "youtube-transcript-api",
 ]
 
 [project.optional-dependencies]
